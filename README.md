@@ -58,37 +58,17 @@ http://localhost:8080
 
 ## 2. Run with Docker 🐳
 
+```
+docker-compose up -d
+```
+
 ### backend
-
-```
-cd backend
-```
-
-```
-docker build -t backend .
-```
-
-```
-docker run -it -p 8000:8000 backend
-```
 
 ```
 http://localhost:8000
 ```
 
 ### frontend
-
-```
-cd frontend
-```
-
-```
-docker build -t frontend .
-```
-
-```
-docker run -it -p 8080:80 frontend
-```
 
 ```
 http://localhost:8080
