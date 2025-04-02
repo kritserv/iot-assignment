@@ -4,10 +4,17 @@
 
 <ul>
   <li><a href="#1-run-directly-on-local-machine-">run directly on local machine 💻</a></li>
-  <li><a href="#1-run-with-docker-">run with docker 🐳</li>
+  <li><a href="#2-run-with-docker-">run with docker 🐳</a></li>
 </ul>
 
 ## 1. Run Directly on Local Machine 💻
+
+(recommend)
+
+<ul>
+    <li>Use Python version 3.9 up</li>
+    <li>Use virtualenv</li>
+</ul>
 
 ### backend
 
