@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "44718757-dfee-4ac6-a85b-de5b168169a0",
+		"name": "Iot Assignment",
+		"description": "Vue3 + Django Rest Framework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43242283"
+	},
+	"item": [
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "Add New Sensor Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timestamp\": \"2025-04-03T19:07:33Z\",\n    \"temperature\": 26.34,\n    \"humidity\": 64.2,\n    \"air_quality\": 147.12\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sensor/data/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"data",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "processed",
+			"item": [
+				{
+					"name": "Fetch Clean Sensor Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/processed/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"processed",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aggregated",
+			"item": [
+				{
+					"name": "Fetch Statistics 10 mins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?minutes=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "minutes",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Statistics 1 hour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?hours=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "hours",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Statistics 24 hour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?hours=24",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "hours",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000/"
+		}
+	]
+}

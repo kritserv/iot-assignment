@@ -31,14 +31,14 @@ class FetchSensorStatistics(APIView):
         time_delta = timedelta(hours=int(hours), minutes=int(minutes))
         start_date = timezone.now() - time_delta
 
-        print(start_date)
-
         if start_date:
             queryset = SensorData.objects.filter(timestamp__gte=start_date)
         else:
             queryset = SensorData.objects.all()
 
         df = pd.DataFrame.from_records(queryset.values())
+        if df.empty:
+            return Response({'message': 'No data available'}, status=status.HTTP_204_NO_CONTENT)
         result = get_statistics(df)
 
         return Response(result, status=status.HTTP_200_OK)

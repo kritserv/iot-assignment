@@ -1,0 +1,97 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /sensor/data/:
+    get:
+      operationId: listSensorData
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sensor'
+          description: ''
+      tags:
+      - sensor
+    post:
+      operationId: createSensorData
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sensor'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Sensor'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Sensor'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sensor'
+          description: ''
+      tags:
+      - sensor
+  /sensor/processed/:
+    get:
+      operationId: listCleanSensors
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - sensor
+  /sensor/aggregated/:
+    get:
+      operationId: listFetchSensorStatistics
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - sensor
+components:
+  schemas:
+    Sensor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+        temperature:
+          type: number
+        humidity:
+          type: number
+        air_quality:
+          type: number
+      required:
+      - timestamp
+      - temperature
+      - humidity
+      - air_quality
