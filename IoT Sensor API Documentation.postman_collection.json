@@ -1,0 +1,443 @@
+{
+	"info": {
+		"_postman_id": "172b1cda-ec3d-4c34-b821-05f7e1048af8",
+		"name": "IoT Sensor API Documentation",
+		"description": "This API provides endpoints for managing IoT sensor data including temperature, humidity, and air quality measurements. It is built using Django Rest Framework and designed to work with a Vue3 frontend.\n\n**Base URL**\n\n`http://localhost:8000/`\n\n**Authentication**\n\nNo authentication is required.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43242283"
+	},
+	"item": [
+		{
+			"name": "1. sensor/data/",
+			"item": [
+				{
+					"name": "Add New Sensor Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timestamp\": \"2025-04-03T19:07:33Z\",\n    \"temperature\": 26.34,\n    \"humidity\": 64.2,\n    \"air_quality\": 147.12\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sensor/data/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"data",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Add a new sensor data to sqlite database."
+		},
+		{
+			"name": "2. sensor/processed/",
+			"item": [
+				{
+					"name": "Fetch Clean Sensor Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/processed/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"processed",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Clean Sensor Data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/sensor/processed/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"sensor",
+										"processed",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 03 Apr 2025 14:16:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1824"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:48:03Z\",\n        \"temperature\": 24.05,\n        \"humidity\": 63.61,\n        \"air_quality\": 66.48\n    },\n    {\n        \"id\": 2,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:48:33Z\",\n        \"temperature\": 24.29,\n        \"humidity\": 69.13,\n        \"air_quality\": 135.39\n    },\n    {\n        \"id\": 3,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:49:03Z\",\n        \"temperature\": 24.4,\n        \"humidity\": 62.43,\n        \"air_quality\": 104.62\n    },\n    {\n        \"id\": 4,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": true,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:49:33Z\",\n        \"temperature\": 24.96,\n        \"humidity\": 54.51,\n        \"air_quality\": 100.17\n    },\n    {\n        \"id\": 5,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:50:03Z\",\n        \"temperature\": 23.35,\n        \"humidity\": 56.63,\n        \"air_quality\": 145.22\n    },\n    {\n        \"id\": 6,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:50:33Z\",\n        \"temperature\": 25.35,\n        \"humidity\": 67.35,\n        \"air_quality\": 85.35\n    },\n    {\n        \"id\": 7,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:51:03Z\",\n        \"temperature\": 25.87,\n        \"humidity\": 62.28,\n        \"air_quality\": 86.15\n    },\n    {\n        \"id\": 8,\n        \"temperature_outlier\": true,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:51:33Z\",\n        \"temperature\": 262.935,\n        \"humidity\": 66.15,\n        \"air_quality\": 55.29\n    },\n    {\n        \"id\": 10,\n        \"temperature_outlier\": true,\n        \"humidity_outlier\": true,\n        \"air_quality_outlier\": true,\n        \"timestamp\": \"2025-01-29T11:52:03Z\",\n        \"temperature\": 500,\n        \"humidity\": 500,\n        \"air_quality\": 500\n    },\n    {\n        \"id\": 11,\n        \"temperature_outlier\": false,\n        \"humidity_outlier\": false,\n        \"air_quality_outlier\": false,\n        \"timestamp\": \"2025-01-29T11:52:33Z\",\n        \"temperature\": 23.75,\n        \"humidity\": 64.46,\n        \"air_quality\": 132.08\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "Get cleaned sensor data\n\n1. Remove duplicate timestamp\n    \n2. Fill missing values using time-based interpolation\n    \n3. Detect outliers"
+		},
+		{
+			"name": "3. sensor/aggregated/",
+			"item": [
+				{
+					"name": "Fetch Statistics 10 mins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?minutes=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "minutes",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Example: last 10 minutes"
+					},
+					"response": [
+						{
+							"name": "Fetch Statistics 10 mins",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/sensor/aggregated/?minutes=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"sensor",
+										"aggregated",
+										""
+									],
+									"query": [
+										{
+											"key": "minutes",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 03 Apr 2025 14:24:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"temperature\": {\n        \"mean\": 24.75,\n        \"median\": 24.75,\n        \"min\": 24.75,\n        \"max\": 24.75\n    },\n    \"humidity\": {\n        \"mean\": 63.32,\n        \"median\": 63.32,\n        \"min\": 63.32,\n        \"max\": 63.32\n    },\n    \"air_quality\": {\n        \"mean\": 52.01,\n        \"median\": 52.01,\n        \"min\": 52.01,\n        \"max\": 52.01\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Statistics 1 hour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?hours=6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "hours",
+									"value": "6"
+								}
+							]
+						},
+						"description": "Example: 1 hour ago"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Statistics 24 hour",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sensor/aggregated/?hours=24",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sensor",
+								"aggregated",
+								""
+							],
+							"query": [
+								{
+									"key": "hours",
+									"value": "24"
+								}
+							]
+						},
+						"description": "Example: 24 hours ago"
+					},
+					"response": [
+						{
+							"name": "Fetch Statistics 24 hour",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/sensor/aggregated/?hours=24",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"sensor",
+										"aggregated",
+										""
+									],
+									"query": [
+										{
+											"key": "hours",
+											"value": "24"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 03 Apr 2025 14:24:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"temperature\": {\n        \"mean\": 24.75,\n        \"median\": 24.75,\n        \"min\": 24.75,\n        \"max\": 24.75\n    },\n    \"humidity\": {\n        \"mean\": 63.32,\n        \"median\": 63.32,\n        \"min\": 63.32,\n        \"max\": 63.32\n    },\n    \"air_quality\": {\n        \"mean\": 52.01,\n        \"median\": 52.01,\n        \"min\": 52.01,\n        \"max\": 52.01\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Get statistics value\n\n- mean\n    \n- median\n    \n- min\n    \n- max"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000"
+		}
+	]
+}

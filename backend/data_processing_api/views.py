@@ -6,7 +6,7 @@ import pandas as pd
 from datetime import timedelta
 from django.utils import timezone
 from .models import SensorData
-from .serializers import SensorSerializer
+from .serializers import SensorSerializer, SensorSerializerWithOutlier
 from .data_cleaner import remove_duplicated, fix_missing_values, detect_outliers
 from .data_stat import get_statistics
 
@@ -20,7 +20,7 @@ class CleanSensor(APIView):
         df = remove_duplicated(df)
         df = fix_missing_values(df)
         df = detect_outliers(df)
-        serializer = SensorSerializer(df.to_dict('records'), many=True)
+        serializer = SensorSerializerWithOutlier(df.to_dict('records'), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class FetchSensorStatistics(APIView):
