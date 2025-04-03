@@ -7,7 +7,7 @@ from datetime import timedelta
 from django.utils import timezone
 from .models import SensorData
 from .serializers import SensorSerializer
-from .data_cleaner import remove_duplicated, fix_missing_values, remove_outliers
+from .data_cleaner import remove_duplicated, fix_missing_values, detect_outliers
 from .data_stat import get_statistics
 
 class CreateSensor(generics.ListCreateAPIView):
@@ -19,7 +19,7 @@ class CleanSensor(APIView):
         df = pd.DataFrame.from_records(SensorData.objects.all().values())
         df = remove_duplicated(df)
         df = fix_missing_values(df)
-        df = remove_outliers(df)
+        df = detect_outliers(df)
         serializer = SensorSerializer(df.to_dict('records'), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
