@@ -1,6 +1,6 @@
 # iot-assignment
 
-![screenshot](Screenshot.png)
+![screenshot](https://raw.githubusercontent.com/kritserv/iot-assignment/refs/heads/main/Screenshot.png)
 
 ## Data cleaning approach
 
