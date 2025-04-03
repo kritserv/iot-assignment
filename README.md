@@ -4,7 +4,7 @@
 
 ## Data cleaning approach
 
-All data processing is done using Pandas. First, duplicate records are removed to keep unique timestamps. Then, missing values in numerical columns are filled using time-based interpolation. Finally, outliers are detected and removed using IQR method.
+All data processing is done using Pandas. First, duplicate records are removed to keep unique timestamps. Then, missing values in numerical columns are filled using time-based interpolation. Finally, outliers are detected using IQR method.
 
 # Setup instructions
 

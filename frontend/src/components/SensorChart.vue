@@ -65,17 +65,21 @@ export default {
       const dataTable = new window.google.visualization.DataTable();
       dataTable.addColumn("datetime", "Time");
       dataTable.addColumn("number", "Temperature");
+      dataTable.addColumn({ type: "string", role: "style" });
 
       const rows = validData.map((item) => [
         new Date(item.timestamp),
         item.temperature,
+        item.temperature_outlier
+          ? "point { color: red; size: 8; }"
+          : "point { color: pink; }",
       ]);
+
       dataTable.addRows(rows);
 
       const chart = new window.google.visualization.ScatterChart(el);
       chart.draw(dataTable, {
         legend: { position: "none" },
-        colors: ["red"],
         trendlines: { 0: {} },
       });
     },
@@ -92,17 +96,21 @@ export default {
       const dataTable = new window.google.visualization.DataTable();
       dataTable.addColumn("datetime", "Time");
       dataTable.addColumn("number", "Humidity");
+      dataTable.addColumn({ type: "string", role: "style" });
 
       const rows = validData.map((item) => [
         new Date(item.timestamp),
         item.humidity,
+        item.humidity_outlier
+          ? "point { color: red; size: 8; }"
+          : "point { color: green; }",
       ]);
+
       dataTable.addRows(rows);
 
       const chart = new window.google.visualization.ScatterChart(el);
       chart.draw(dataTable, {
         legend: { position: "none" },
-        colors: ["green"],
         trendlines: { 0: {} },
       });
     },
@@ -119,17 +127,21 @@ export default {
       const dataTable = new window.google.visualization.DataTable();
       dataTable.addColumn("datetime", "Time");
       dataTable.addColumn("number", "Air Quality");
+      dataTable.addColumn({ type: "string", role: "style" });
 
       const rows = validData.map((item) => [
         new Date(item.timestamp),
         item.air_quality,
+        item.air_quality_outlier
+          ? "point { color: red; size: 8; }"
+          : "point { color: blue; }",
       ]);
+
       dataTable.addRows(rows);
 
       const chart = new window.google.visualization.ScatterChart(el);
       chart.draw(dataTable, {
         legend: { position: "none" },
-        colors: ["blue"],
         trendlines: { 0: {} },
       });
     },
